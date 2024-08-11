@@ -5,8 +5,8 @@ import './App.css';
 import NavBar from './Components/NabBar';
 import Hero from './Components/Hero';
 import Card from './Components/Card';
-import Data from './data';
 import data from './data';
+
 function App() {
 /*
 Challenge:
@@ -18,14 +18,8 @@ Challenge:
 
 Note: We haven't styled the group of components yet, so they'll
 still be block elements, stacked vertically. We'll add styling later.
-*/
-const dataElement = Data.map(card => {
-	return <Card setup={Card.title} punchline={Card.price} />
-})
-	return (
-		<>
-			<NavBar></NavBar>
-			<Card
+
+		<Card
 				img='/src/Components/images/katie-zaferes.png'
 				rating='5.0'
 				reviewCount={6}
@@ -33,6 +27,22 @@ const dataElement = Data.map(card => {
 				title='Life Lessons with Katie Zaferes'
 				price={136}
 			></Card>
+*/
+const dataElement = data.map(item => {
+	return <Card 
+	img={item.coverImg}
+	rating={item.rating}
+	reviewCount={item.reviewCount}
+	country={item.country}
+	title={item.title}
+	price={item.price}
+	/>
+})
+
+	return (
+		<>
+			<NavBar></NavBar>
+		{dataElement}
 		</>
 	);
 }
