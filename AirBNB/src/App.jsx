@@ -27,22 +27,30 @@ still be block elements, stacked vertically. We'll add styling later.
 				title='Life Lessons with Katie Zaferes'
 				price={136}
 			></Card>
+			img={item.coverImg}
+	rating={item.stats.rating}
+	reviewCount={item.stats.reviewCount}
+	country={item.country}
+	location={item.location}
+	title={item.title}
+	price={item.price}
+	openSpots={item.openSpots}
 */
 const dataElement = data.map(item => {
 	return <Card 
-	img={item.coverImg}
-	rating={item.rating}
-	reviewCount={item.reviewCount}
-	country={item.country}
-	title={item.title}
-	price={item.price}
+	key={item.id}
+	item={item}
 	/>
 })
 
 	return (
 		<>
 			<NavBar></NavBar>
-		{dataElement}
+			<Hero />
+
+		  <section className="cards-list">
+                {dataElement}
+            </section>
 		</>
 	);
 }
